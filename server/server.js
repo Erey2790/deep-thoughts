@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 const startServer = async () => {
-  // create a new Apollo server and pass in our schema data 
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    context: authMiddleware
+  // create a new Apollo server and pass in our schema data
+  const server = new ApolloServer({ 
+    typeDefs, 
+    resolvers, 
+    // context: authMiddleware 
   });
 
   // Start the Apollo server
@@ -24,7 +24,7 @@ const startServer = async () => {
   server.applyMiddleware({ app });
 
   // log where we can go to test our GQL API
-  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`)
+  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 };
 
 // Initialize the Apollo server
